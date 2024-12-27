@@ -19,7 +19,8 @@ function Navbar({onToggleMenu}) {
     const handleActiveimput = () => {
         setActiveImputSearch(!ActiveImputSearch);
     }
-  return (
+    
+    return (
     <>
         <div className='py-1 flex items-center'>
             <div className='w-[60%]  md:w-1/2 flex items-center'>
@@ -95,7 +96,7 @@ function Navbar({onToggleMenu}) {
         <hr />
     </>
     
-  )
+    )
 }
 
 export default Navbar

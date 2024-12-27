@@ -32,13 +32,13 @@ function Home() {
                 ${MenuOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:static md:translate-x-0`}
             >
                 <div>
-                    <div className='py-4 flex items-center lg:flex-none'>
-                        <h1 className='text-4xl md:flex-none lg:flex lg:justify-center'>
-                            WeHr
-                        </h1>
+                    <div className='py-4 flex items-center '>
+                            <h1 className='text-4xl md:flex-none lg:flex lg:justify-center lg:mx-12'>
+                                WeHr
+                            </h1>
 
                         {/* Btn close menu for small screen */}
-                        <div className='flex justify-end w-full md:hidden'>
+                        <div className='flex justify-end w-full md:hidden lg:hidden'>
                             <button 
                                 type="button"
                                 onClick={handleCloseMenu}
@@ -139,22 +139,22 @@ function Home() {
 
                             <li className='flex items-center cursor-pointer mb-5 text-gray-700'>
                                 <BiSupport size={25} className='mx-4' />
-                               <button 
+                                <button 
                                     type="button"
                                     className='text-lg md:hidden lg:block'
                                 >
                                     Support
-                               </button>
+                                </button>
                             </li>
 
                             <li className='flex items-center cursor-pointer mb-5 text-gray-700'>
                                 <IoMdSettings size={25} className='mx-4' />
-                               <button 
+                                <button 
                                     type="button"
                                     className='text-lg md:hidden lg:block'
                                 >
                                     Settings
-                               </button>
+                                </button>
                             </li>
                         </ul>
                     </div>

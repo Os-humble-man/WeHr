@@ -1,10 +1,11 @@
 import { Route, Routes } from 'react-router'
 import Home from '../pages/Home'
-import Dashboard from '../components/Dashboard'
-import Recrutement from '../components/Recrutement'
-import Schedule from '../components/Schedule'
-import Employe from '../components/Employe'
-import Departement from '../components/Departement'
+import Dashboard from '../components/Dashboard/Dashboard'
+import Recrutement from '../components/Recrutement/Recrutement'
+import Schedule from '../components/Schedule/Schedule'
+import Employe from '../components/Employee/Employe'
+import Departement from '../components/Departement/Departement'
+
 
 function RouteHome() {
   return (
