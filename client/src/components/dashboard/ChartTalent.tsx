@@ -1,4 +1,3 @@
-import React from "react";
 import { ResponsiveContainer, LineChart, Tooltip, Area, Line } from "recharts";
 
 function ChartTalent() {
