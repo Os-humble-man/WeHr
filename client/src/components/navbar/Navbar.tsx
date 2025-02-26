@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 // Les icones
 import { IoIosNotifications } from "react-icons/io";
@@ -13,7 +13,7 @@ interface ToggleProps {
 
 function Navbar({onToggleMenu} : ToggleProps) {
     const [ActiveImputSearch, setActiveImputSearch] = useState(false);
-    const [test, settest] = useState();
+    // const [test, settest] = useState();
     // const testclick = ()=> {
     //     settest(
     //         alert("Bonjour ca passe")

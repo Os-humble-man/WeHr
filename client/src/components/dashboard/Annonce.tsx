@@ -1,6 +1,5 @@
 /** @format */
 
-// les icones
 import AnnonceCard from "../card/AnnonceCard";
 
 function Annonce() {
@@ -17,11 +16,11 @@ function Annonce() {
         </div>
 
         <div className="h-56 overflow-auto lg:h-64 lg:scrollbar-none  ">
-        {
-          Array.from({length:5}).map((item,index)=>{
-            return <AnnonceCard key={index}/>
-          })
-        }
+          {
+            Array.from({length:5}).map((item,index)=>{
+              return <AnnonceCard key={index}/>
+            })
+          }
         </div>
       </div>
       <hr />
