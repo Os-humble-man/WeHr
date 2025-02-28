@@ -19,6 +19,7 @@ function ModalDelete({CloseModalDelete}: ModalDeleteProps) {
                         <div className="flex justify-center">
                             < FcHighPriority size={70} />
                         </div>
+                        
                         <div className="md:w-96 md:block">
                             <h1 className="text-xl text-center py-4">Êtes-vous sûr de vouloir supprimer cette offre ?</h1>
                             <p className="text-center text-gray-400">
