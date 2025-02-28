@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 
 // Les icones
 import { IoIosNotifications } from "react-icons/io";
@@ -7,14 +7,18 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import { TbMenu2 } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
 
-function Navbar({onToggleMenu}) {
+interface ToggleProps {
+    onToggleMenu : ()=> void;
+}
+
+function Navbar({onToggleMenu} : ToggleProps) {
     const [ActiveImputSearch, setActiveImputSearch] = useState(false);
-    const [test, settest] = useState();
-    const testclick = ()=> {
-        settest(
-            alert("Bonjour ca passe")
-        );
-    };
+    // const [test, settest] = useState();
+    // const testclick = ()=> {
+    //     settest(
+    //         alert("Bonjour ca passe")
+    //     );
+    // };
 
     const handleActiveimput = () => {
         setActiveImputSearch(!ActiveImputSearch);
@@ -51,14 +55,14 @@ function Navbar({onToggleMenu}) {
                             name="" 
                             id=""
                             placeholder='Search'
-                            className={`border md:border-r-0 py-1 w-full px-4 outline-none  focus:border focus:border-r-0 
+                            className={`border-slate-300 border md:border-r-0 py-1 w-full px-4 outline-none  focus:border focus:border-r-0 
                                 focus:outline-none rounded-md md:rounded-l-md md:rounded-r-none bg-slate-50 md:w-64 lg:w-80 ${ActiveImputSearch ? "block" : "hidden md:block"}`}
                         />
                     )}
                     <button 
                         type="button"
                         onClick={() => handleActiveimput() }
-                        className='md:bg-slate-50 py-2 px-2 md:border md:border-l-0 md:rounded-r-md'
+                        className='md:bg-slate-50 py-2 px-2 md:border md:border-slate-300 md:border-l-0 md:rounded-r-md'
                     >
                         < CiSearch />
                     </button>
@@ -93,7 +97,7 @@ function Navbar({onToggleMenu}) {
                 </div>
             </div>
         </div>
-        <hr />
+        <hr className='border-slate-300 border' />
     </>
     
     )

@@ -1,6 +1,3 @@
-/** @format */
-
-import React from "react";
 import { ResponsiveContainer, Line, LineChart, Tooltip, Area } from "recharts";
 
 function ChartEmploye() {
