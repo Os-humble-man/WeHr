@@ -1,4 +1,6 @@
-import {useState} from 'react'
+import {useState, useRef, useEffect} from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router';
 
 // Les icones
 import { IoIosNotifications } from "react-icons/io";
@@ -6,23 +8,34 @@ import { RiMessage2Fill } from "react-icons/ri";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { TbMenu2 } from "react-icons/tb";
 import { CiSearch } from "react-icons/ci";
+import { IoIosLogOut } from "react-icons/io";
 
 interface ToggleProps {
     onToggleMenu : ()=> void;
 }
 
 function Navbar({onToggleMenu} : ToggleProps) {
+
     const [ActiveImputSearch, setActiveImputSearch] = useState(false);
-    // const [test, settest] = useState();
-    // const testclick = ()=> {
-    //     settest(
-    //         alert("Bonjour ca passe")
-    //     );
-    // };
+    const [Ismenu, setIsmenu] = useState(false);
+    const menuRef = useRef<HTMLDivElement | null>(null);
 
     const handleActiveimput = () => {
         setActiveImputSearch(!ActiveImputSearch);
     }
+
+    useEffect(()=> {
+        function handleClickOutSide(event: MouseEvent) {
+            if(menuRef.current && !menuRef.current.contains(event.target as Node)){
+                setIsmenu(false);
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutSide);
+
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutSide);
+        }
+    }, []);
     
     return (
     <>
@@ -81,19 +94,65 @@ function Navbar({onToggleMenu} : ToggleProps) {
                         className='text-gray-400 mx-1 md:mx-3'
                     />
                 </div>
-
-                <div className='flex items-center'>
-                    <div>
+                
+                <div 
+                    className='flex items-center relative'
+                >
+                    <div className='cursor-pointer'>
                         <img 
                             src="/src/assets/img/avatar.png" 
-                            alt="Picture user" 
+                            alt="Picture user"
+                            onClick={()=> setIsmenu(!Ismenu)}
                             className='h-9 w-9 md:h-11 md:w-11 rounded-full lg:h-14 lg:w-14'
                         />
                     </div>
-                    <div className='flex items-center'>
+                    <div 
+                        onClick={()=> setIsmenu(!Ismenu)}
+                        className='flex items-center cursor-pointer'
+                    >
                         <h1 className='px-2 hidden lg:block'>Maurice Miema</h1>
                         <HiOutlineChevronDown size={20} />
                     </div>
+
+                    {/* Modal Logout */}
+                    < AnimatePresence > 
+                        {Ismenu && (
+                            <motion.div 
+                                ref={menuRef}
+                                initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                                animate={{ opacity: 1, y: 0, scale: 1 }}
+                                exit={{ opacity: 0, y: 20, scale: 0.9 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                                className='absolute top-16 right-1 border border-gray-300 bg-white shadow z-10 px-4 py-2 rounded-md w-60'
+                            >
+                                <div className='mb-2'>
+                                    <div className='flex justify-center'>
+                                        <img 
+                                            src="/src/assets/img/avatar.png" 
+                                            alt="Picture user" 
+                                            className='h-9 w-9 md:h-11 md:w-11 rounded-full lg:h-20 lg:w-20'
+                                        />
+                                    </div>
+
+                                    <div className='flex justify-center text-center'>
+                                        <h1>Maurice Miema </h1>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <Link 
+                                        to="/"
+                                        type="button"
+                                        className='flex items-center border border-gray-300 gap-2 py-1 rounded-md w-full justify-center cursor-pointer hover:bg-gray-50'
+                                    >
+                                        < IoIosLogOut size={30} />
+                                        Se Déconnecter
+                                    </Link>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                    
                 </div>
             </div>
         </div>

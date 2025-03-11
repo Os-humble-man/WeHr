@@ -56,13 +56,13 @@ function Home() {
                                 <li>
                                     <Link 
                                         to="/Home"
-                                        className={`flex items-center cursor-pointer mb-5 ${isActive("/Home")}`}
+                                        className={`flex items-center  mb-5 ${isActive("/Home")}`}
                                         onClick={handleCloseMenu}
                                     >
                                         <MdDashboard size={25} className='mx-4' />
                                         <button 
                                             type="button"
-                                            className='text-lg md:hidden lg:block'
+                                            className='text-lg cursor-pointer md:hidden lg:block'
                                         >
                                             Dashboard
                                         </button>
@@ -72,13 +72,13 @@ function Home() {
                                 <li>
                                     <Link 
                                         to="/Home/Recrutement"
-                                        className={`flex items-center cursor-pointer mb-5 ${isActive("/Home/Recrutement")}`}
+                                        className={`flex items-center  mb-5 ${isActive("/Home/Recrutement")}`}
                                         onClick={handleCloseMenu}
                                     >
                                         <FaUserPlus size={25} className='mx-4' />
                                         <button
                                             type="button"
-                                            className='text-lg md:hidden lg:block'
+                                            className='text-lg cursor-pointer md:hidden lg:block'
                                         >
                                                 Recrutement
                                         </button>
@@ -88,13 +88,13 @@ function Home() {
                                 <li>
                                     <Link 
                                         to="/Home/Schedule"
-                                        className={`flex items-center cursor-pointer mb-5 ${isActive("/Home/Schedule")}`}
+                                        className={`flex items-center mb-5 ${isActive("/Home/Schedule")}`}
                                         onClick={handleCloseMenu}
                                     >
                                         <BiSolidCalendarEvent size={25} className='mx-4' />
                                         <button 
                                             type="button"
-                                            className='text-lg md:hidden lg:block'
+                                            className='text-lg cursor-pointer md:hidden lg:block'
                                         >
                                             Schedule
                                         </button>
@@ -105,12 +105,12 @@ function Home() {
                                     <Link
                                         to="/Home/Employe"
                                         onClick={handleCloseMenu}
-                                        className={`flex items-center cursor-pointer mb-5 ${isActive("/Home/Employe")}`}
+                                        className={`flex items-center mb-5 ${isActive("/Home/Employe")}`}
                                     >
                                         <MdGroups size={25} className='mx-4' />
                                         <button 
                                                 type="button"
-                                                className='text-lg md:hidden lg:block'
+                                                className='text-lg cursor-pointer md:hidden lg:block'
                                             >
                                                 Employée
                                         </button>
@@ -121,12 +121,12 @@ function Home() {
                                     <Link 
                                         to="/Home/Departement"
                                         onClick={handleCloseMenu}
-                                        className={`flex items-center cursor-pointer mb-5 ${isActive("/Home/Departement")}`}
+                                        className={`flex items-center mb-5 ${isActive("/Home/Departement")}`}
                                     >
                                         <FaUserCog size={25} className='mx-4' />
                                         <button 
                                                 type="button"
-                                                className='text-lg md:hidden lg:block'
+                                                className='text-lg cursor-pointer md:hidden lg:block'
                                             >
                                                 Departement
                                         </button>
@@ -137,21 +137,21 @@ function Home() {
                                     <h1 className='ml-4 text-gray-400 text-xs md:ml-1'>OTHER</h1>
                                 </div>
 
-                                <li className='flex items-center cursor-pointer mb-5 text-gray-700'>
+                                <li className='flex items-center mb-5 text-gray-700'>
                                     <BiSupport size={25} className='mx-4' />
                                     <button 
                                         type="button"
-                                        className='text-lg md:hidden lg:block'
+                                        className='text-lg cursor-pointer md:hidden lg:block'
                                     >
                                         Support
                                     </button>
                                 </li>
 
-                                <li className='flex items-center cursor-pointer mb-5 text-gray-700'>
+                                <li className='flex items-center mb-5 text-gray-700'>
                                     <IoMdSettings size={25} className='mx-4' />
                                     <button 
                                         type="button"
-                                        className='text-lg md:hidden lg:block'
+                                        className='text-lg cursor-pointer md:hidden lg:block'
                                     >
                                         Settings
                                     </button>

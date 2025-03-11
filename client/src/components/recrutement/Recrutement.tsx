@@ -13,6 +13,7 @@ import ModalDelete from "./ModalDelete";
 function Recrutement() {
   const [ismenu, setIsmenu] = useState(false); // open from
   const [isModalDelete, setIsModalDelete] = useState(false)
+  const [SearchTerm, setSearchTerm] = useState("");
 
 
   //******************************** Open From ************************************
@@ -30,6 +31,8 @@ function Recrutement() {
   const handleCloseModalDelete = ()=> {
     setIsModalDelete(false);
   }
+
+  // **************************** Search Offre ****************************************
   return (
     <>
         <section>
@@ -42,10 +45,10 @@ function Recrutement() {
               <div className='flex w-full'>
                 <input 
                     type="search" 
-                    name="" 
-                    id=""
+                    value={SearchTerm}
+                    onChange={(e)=> setSearchTerm(e.target.value)}
                     placeholder='Search'
-                    className={`border-slate-300 border-2 md:border-r-0 py-2 w-full px-4 outline-none  focus:border-2 focus:border-r-0 
+                    className={`border-slate-300 border-2 md:border-r-0 py-1 w-full px-4 outline-none  focus:border-2 focus:border-r-0 
                     focus:outline-none rounded-md md:rounded-l-md md:rounded-r-none  md:w-64 lg:w-80 "block" : "hidden md:block"}`}
                 />
                 <button 
@@ -72,25 +75,24 @@ function Recrutement() {
 
           {/* table recruitment */}
           <div className="flex flex-col mt-2.5">
-            <div className="-m-1.5 overflow-x-auto">
+            <div className="-m-1.5 overflow-x-auto overflow-visible">
               <div className="p-1.5 min-w-full inline-block align-middle">
-                <div className="border border-gray-200 rounded-lg overflow-hidden">
-                  <table className="min-w-full divide-y divide-gray-200 ">
+                <div className="border border-gray-200 rounded-lg h-[70vh] overflow-auto">
+                  <table className="min-w-full divide-y divide-gray-200">
                     <thead className="bg-slate-50">
                       <tr className="">
-                        <th scope="col" className="px-6 py-3 text-start text-base font-medium   ">Description</th>
-                        <th scope="col" className="px-6 py-3 text-start text-base font-medium   ">Departement</th>
-                        <th scope="col" className="px-6 py-3 text-start text-base font-medium   ">Type de Contrat</th>
-                        <th scope="col" className="px-6 py-3 text-start text-base font-medium   ">Date</th>
-                        <th scope="col" className="px-6 py-3 text-start text-base font-medium   ">Delete</th>
-                        <th scope="col" className="px-6 py-3 text-start text-base font-medium   ">Update</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-sm:px-2 ">Description</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-sm:hidden ">Departement</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-sm:hidden  ">Type de Contrat</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-lg:hidden">Date Debut</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-lg:hidden">Date Fin</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-sm:px-2 ">Statut</th>
+                        <th scope="col" className="px-6 py-3 text-start text-base font-medium max-sm:px-2 "> Action </th>
                       </tr>
                     </thead>
-                      {
-                        Array.from({length: 7}).map((item, index)=> {
-                          return < Cardrecrutement OpenModalDelete={handleOpenModalDelete} key={index} />
-                        })
-                      }
+                      
+                    < Cardrecrutement OpenModalDelete={handleOpenModalDelete} SearchTerm={SearchTerm} />
+
                   </table>
                 </div>
               </div>

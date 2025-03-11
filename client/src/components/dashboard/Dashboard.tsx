@@ -17,7 +17,9 @@ function Dashboard() {
             {/* contener cards */}
             <div className='mb-3 sm:grid sm:grid-cols-3 sm:gap-3 md:w-auto md:grid md:grid-cols-3 md:gap-3'>
               {/* card 1 */}
-              <div className='px-4 py-3 rounded-md bg-[#FFEFE7] mb-2 md:mb-0 2xl:px-10 2xl:py-5'>
+              <div 
+                className='px-4 py-3 rounded-md bg-[#FFEFE7] mb-2 md:mb-0 2xl:px-10 2xl:py-5'
+              >
                 <h1 className='text-lg 2xl:text-2xl'>Available Position</h1>
 
                 <div className='py-2 2xl:py-6'>

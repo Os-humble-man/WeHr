@@ -1,11 +1,11 @@
-/** @format */
-
 import { HiOutlineDotsHorizontal } from "react-icons/hi";
 
 function Notification() {
   return (
     <>
-      <div className="md:w-[40%] lg:w-auto">
+      <div 
+        className="md:w-[40%] lg:w-auto"
+      >
         <div className="bg-[#1B204A] px-6 py-2 rounded-t-2xl">
           <h1 className="text-xl text-white">Recently Activity</h1>
         </div>
