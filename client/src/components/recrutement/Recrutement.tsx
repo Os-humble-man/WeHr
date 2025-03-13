@@ -1,23 +1,30 @@
 import { useState } from "react";
-
 // icone
 import { CiSearch } from "react-icons/ci";
 import { MdOutlineAdd } from "react-icons/md";
-
 // composent
 import FromRecrutement from "./FromRecrutement";
 import Cardrecrutement from "./card_recrutement/CardRecrutement";
 import ModalDelete from "./ModalDelete";
 
+interface DataRecrutement {
+  id: number;
+  description: string;
+  department: string;
+  contract: string;
+  date: string;
+}
 
 function Recrutement() {
   const [ismenu, setIsmenu] = useState(false); // open from
-  const [isModalDelete, setIsModalDelete] = useState(false)
-  const [SearchTerm, setSearchTerm] = useState("");
+  const [isModalDelete, setIsModalDelete] = useState(false); // open Modalelete
+  const [SearchTerm, setSearchTerm] = useState(""); // Search item for recrutment
+  const [selectedRecrutement, setSelectedRecrutement] = useState<DataRecrutement | null>(null);
 
 
   //******************************** Open From ************************************
   const handleOpenFrom = ()=> {
+    setSelectedRecrutement(null);
     setIsmenu(true);
   }
   const handleCloseFrom = ()=> {
@@ -32,7 +39,11 @@ function Recrutement() {
     setIsModalDelete(false);
   }
 
-  // **************************** Search Offre ****************************************
+  // **************************** Upadate offre ****************************************
+  const handleUpdateOffre = (recrutement: DataRecrutement) => {
+    setSelectedRecrutement(recrutement);
+    setIsmenu(true);
+  }
   return (
     <>
         <section>
@@ -90,8 +101,8 @@ function Recrutement() {
                         <th scope="col" className="px-6 py-3 text-start text-base font-medium max-sm:px-2 "> Action </th>
                       </tr>
                     </thead>
-                      
-                    < Cardrecrutement OpenModalDelete={handleOpenModalDelete} SearchTerm={SearchTerm} />
+
+                    < Cardrecrutement OpenModalDelete={handleOpenModalDelete} SearchTerm={SearchTerm} onUpdate={handleUpdateOffre}/>
 
                   </table>
                 </div>
@@ -102,7 +113,7 @@ function Recrutement() {
 
         {/* FORMULAIRE  */}
         {
-          ismenu && < FromRecrutement oncloseFrom={handleCloseFrom} />
+          ismenu && < FromRecrutement recrutement={selectedRecrutement} oncloseFrom={handleCloseFrom} />
         }
 
         {/*******************************  Modal Delete  ************************/}

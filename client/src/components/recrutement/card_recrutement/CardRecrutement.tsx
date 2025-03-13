@@ -8,6 +8,7 @@ import { TbDotsVertical } from "react-icons/tb";
 
 interface ModalDeleteProps {
     OpenModalDelete: () => void;
+    onUpdate: (recrutement: DataRecrutement) => void;
     SearchTerm: string;
 }
 
@@ -19,7 +20,7 @@ interface DataRecrutement {
     date: string;
 }
 
-function Cardrecrutement({ OpenModalDelete, SearchTerm }: ModalDeleteProps) {
+function Cardrecrutement({ OpenModalDelete, SearchTerm, onUpdate }: ModalDeleteProps) {
     const [openMenuId, setOpenMenuId] = useState<number | null>(null);
     const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -97,7 +98,10 @@ function Cardrecrutement({ OpenModalDelete, SearchTerm }: ModalDeleteProps) {
                                                 <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-md flex items-center gap-2 cursor-pointer">
                                                     <GrView size={20} className="text-gray-600" /> View Details
                                                 </li>
-                                                <li className="px-4 py-2 hover:bg-gray-100 hover:rounded-md flex items-center gap-2 cursor-pointer">
+                                                <li 
+                                                    onClick={() => onUpdate(item)}
+                                                    className="px-4 py-2 hover:bg-gray-100 hover:rounded-md flex items-center gap-2 cursor-pointer"
+                                                >
                                                     <CiEdit size={20} /> Edit Details
                                                 </li>
                                                 <li
